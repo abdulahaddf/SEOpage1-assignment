@@ -3,7 +3,7 @@ import Warper from "../utils/Warper";
 
 export default function Card() {
   return (
-    <div className="w-[340px] bg-white p-2 rounded-md space-y-4">
+    <div className="w-[280px] bg-white p-2 rounded-md space-y-4 text-xs">
       <section className="flex justify-between">
         <Warper>
           <img className="w-8 rounded-full" src="/user3.jpg" alt="" />
@@ -28,9 +28,9 @@ export default function Card() {
       </section>
       <section className="flex justify-between">
         <Warper>
-          <img className="w-8 rounded-full" src="/user2.jpg" alt="" />
-          <img className="w-8 rounded-full" src="/user4.jpg" alt="" />
-          <p className="bg-[#f2f4f7] p-[4px] h-9 rounded-full">12+</p>
+          <img className="w-6 rounded-full" src="/user2.jpg" alt="" />
+          <img className="w-6 rounded-full" src="/user4.jpg" alt="" />
+          <p className="bg-[#f2f4f7] p-[3px] h-6 rounded-full">12+</p>
         </Warper>
 
         <Warper>

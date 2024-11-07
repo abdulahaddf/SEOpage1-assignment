@@ -4,40 +4,44 @@
 
 @layer components {
   .card-section {
-    @apply bg-[#f2f4f7] space-y-5  h-[650px] overflow-x-hidden  overflow-y-auto flex-shrink-0 custom-scrollbar-2 px-2 py-4; 
+    @apply bg-[#f2f4f7] space-y-5  h-[650px] overflow-x-hidden  overflow-y-auto flex-shrink-0 custom-scrollbar-2 px-2 py-4;
   }
 }
 
 .custom-scrollbar {
-  overflow: auto; 
+  overflow: auto;
 }
 
 .custom-scrollbar::-webkit-scrollbar {
-  width: 10px; 
-  height: 10px; 
+  width: 10px;
+  height: 10px;
 }
 .custom-scrollbar::-webkit-scrollbar-track {
-  background: #bbbbbb; 
+  background: #bbbbbb;
+  border-radius: 10px;
+  height: 20px;
+  margin: 4px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background-color: #147cc3; 
-  border-radius: 4px; 
+  background-color: #147cc3;
+  border-radius: 4px;
+  height: 10px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background-color: #0668a9; 
+  background-color: #0668a9;
 }
 
 /* custom-scrollbar.css */
 .custom-scrollbar-2 {
   overflow: auto;
-  overflow-x: hidden; 
+  overflow-x: hidden;
 }
 
 .custom-scrollbar-2::-webkit-scrollbar {
-  width: 7px; 
-  height: 10px; 
+  width: 7px;
+  height: 10px;
 }
 
 .custom-scrollbar-2::-webkit-scrollbar-track {
@@ -45,10 +49,10 @@
 }
 
 .custom-scrollbar-2::-webkit-scrollbar-thumb {
-  background-color: #147cc3; 
-  border-radius: 5px; 
+  background-color: #147cc3;
+  border-radius: 5px;
 }
 
 .custom-scrollbar-2::-webkit-scrollbar-thumb:hover {
-  background-color: #0668a9; 
+  background-color: #0668a9;
 }
