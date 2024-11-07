@@ -1,7 +1,39 @@
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import Card from "./Components/Card";
+import Loader from "./Components/Loader";
 
 function App() {
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        const response = await fetch(
+          "https://seo-server-production.up.railway.app/users"
+        );
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        const data = await response.json();
+        console.log(data);
+        setUsers(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchUsers();
+  }, []);
+
+  const incomplete = users.filter((user) => user.progress === "not started");
+  const toDo = users.filter((user) => user.progress === "to do");
+  const doing = users.filter((user) => user.progress === "doing");
+  const underReview = users.filter((user) => user.progress === "under review");
+  const completed = users.filter((user) => user.progress === "completed");
+  const overdue = users.filter((user) => user.progress === "overdue");
+
+  if (users.length == 0) return <Loader />;
   return (
     <div className="flex mx-5 space-x-3  overflow-x-auto p-2 mt-10 custom-scrollbar">
       <section>
@@ -13,11 +45,9 @@ function App() {
           <p>0</p>
         </div>
         <div className="card-section">
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
+          {incomplete.map((user) => (
+            <Card key={user._id} user={user} />
+          ))}
         </div>
       </section>
       <section>
@@ -29,11 +59,9 @@ function App() {
           <p>0</p>
         </div>
         <div className="card-section">
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
+          {toDo.map((user) => (
+            <Card key={user._id} user={user} />
+          ))}
         </div>
       </section>
       <section>
@@ -45,11 +73,9 @@ function App() {
           <p>0</p>
         </div>
         <div className="card-section">
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
+          {doing.map((user) => (
+            <Card key={user._id} user={user} />
+          ))}
         </div>
       </section>
       <section>
@@ -60,11 +86,9 @@ function App() {
           <p>0</p>
         </div>
         <div className="card-section">
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
+          {underReview.map((user) => (
+            <Card key={user._id} user={user} />
+          ))}
         </div>
       </section>
       <section>
@@ -75,11 +99,9 @@ function App() {
           <p>0</p>
         </div>
         <div className="card-section">
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
+          {completed.map((user) => (
+            <Card key={user._id} user={user} />
+          ))}
         </div>
       </section>
       <section>
@@ -90,11 +112,9 @@ function App() {
           <p>0</p>
         </div>
         <div className="card-section">
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
+          {overdue.map((user) => (
+            <Card key={user._id} user={user} />
+          ))}
         </div>
       </section>
     </div>
